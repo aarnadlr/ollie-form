@@ -4,12 +4,14 @@ import './App.scss';
 // import ErrorFallback from './components/ErrorFallback/ErrorFallback';
 import useSWR from 'swr';
 
+// create an array of 150 empty items. Return an iterator of the array length. Spread the iterator into an array.
+const weightVals = [...Array(150).keys()];
+
 const url =
   'https://32f2jzoot4.execute-api.us-east-1.amazonaws.com/default/fe-takehome-api';
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const App = () => {
-
   //---------
   // const { data, error } = useSWR(url, fetcher);
 
@@ -49,33 +51,51 @@ const App = () => {
 
   return (
     <div className="App">
-
-      <img src={'https://via.placeholder.com/600'} alt="placeholder"/>
+      <img src={'https://via.placeholder.com/600'} alt="placeholder" />
 
       <form>
-
         <label htmlFor="email">Email</label>
         <input type="email" name="email" id="email" autoComplete="email" />
-        
 
         <label htmlFor="password">Password</label>
-        <input type="password" name="password" id="password" autoComplete="new-password" />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          autoComplete="new-password"
+        />
 
-        <label htmlFor="password">Confirm Password</label>
-        <input type="password" name="password" id="password" autoComplete="new-password" />
-
+        <label htmlFor="confirm-password">Confirm Password</label>
+        <input
+          type="confirm-password"
+          name="confirm-password"
+          id="confirm-password"
+          autoComplete="new-password"
+        />
 
         <label htmlFor="pet-name">Pet Name</label>
         <input type="text" name="pet-name" id="pet-name" autoComplete="on" />
 
         <label htmlFor="pet-weight">Pet Weight</label>
-        <input type="text" name="pet-weight" id="pet-weight" autoComplete="on" />
+
+
+        <select name="pet-weight" id="pet-weight">
+
+          <option value={'less than 1 lb.'}> 0 to 1 lb.</option>
+          
+          {weightVals.map((item, idx) => (
+            <option value={item} key={idx}>
+              {item + 1} lb.
+            </option>
+          ))}
+
+          <option value={'more than 150 lb.'}> Greater than 150 lb.</option>
+        
+        </select>
 
 
         <input type="button" value="SUBMIT" />
-
       </form>
-
     </div>
   );
 };

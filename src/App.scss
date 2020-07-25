@@ -33,7 +33,7 @@ $breakpoint: 768px;
       margin: 0 0 4px 0;
       width: 300px;
     }
-    input {
+    input, select {
       padding: 8px;
       margin: 0 0 16px 0;
       height: 40px;
@@ -50,5 +50,12 @@ $breakpoint: 768px;
         margin: 16px 0 48px 0;
       }
     }
+
+    select{
+      padding: 0px 8px;
+    }
+
+  
+
   }
 }
