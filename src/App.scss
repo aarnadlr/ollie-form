@@ -27,6 +27,12 @@
   align-items: center;
   height: 100vh;
 }
+
+.strong{
+  font-weight: 600;
+  color: currentColor;
+}
+
 .response--error {
   .message {
     span {
@@ -38,6 +44,7 @@
   .message {
     span {
       color: green;
+
     }
   }
 }

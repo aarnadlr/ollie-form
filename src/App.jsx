@@ -40,10 +40,6 @@ const App = () => {
   };
 
   useEffect(() => {
-    console.log('log fetchResponse from useEffect:', fetchResponse);
-  }, [fetchResponse]);
-
-  useEffect(() => {
     console.log('log formValues from useEffect:', formValues);
   }, [formValues]);
 
