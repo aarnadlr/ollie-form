@@ -23,7 +23,7 @@ export default function Form() {
         ref={register({
           required: true,
           // regexp for email validation:
-          pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+          pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
         })}
       />
       {errors && errors.email && (
@@ -45,7 +45,10 @@ export default function Form() {
         })}
       />
       {errors && errors.password && (
-        <p className="error-message">Whoops, password must be 8 characters and contain 1 letter, 1 number, 1 special character.</p>
+        <p className="error-message">
+          Whoops, password must be 8 characters and contain 1 letter, 1 number,
+          1 special character.
+        </p>
       )}
 
       <label htmlFor="confirmPassword">Confirm Password</label>
@@ -64,9 +67,7 @@ export default function Form() {
         })}
       />
       {errors && errors.confirmPassword && (
-        <p className="error-message">
-          Value must match password.
-        </p>
+        <p className="error-message">Value must match password.</p>
       )}
 
       <label htmlFor="pet-name">Pet Name</label>
@@ -80,15 +81,27 @@ export default function Form() {
       />
 
       <label htmlFor="pet-weight">Pet Weight</label>
-
       <select name="pet-weight" id="pet-weight" ref={register()} required>
-
         {weightVals.map((item, idx) => (
-          <option value={`${item+3}lb.`} key={idx}>
+          <option value={`${item + 3}lb.`} key={idx}>
             {item + 3} lb.
           </option>
         ))}
+      </select>
 
+      <label htmlFor="pet-ideal-weight">Pet Ideal Weight (optional)</label>
+      <select
+        name="pet-ideal-weight"
+        id="pet-ideal-weight"
+        ref={register()}
+        required
+      >
+        <option value={'no selection'}>Select a weight</option>
+        {weightVals.map((item, idx) => (
+          <option value={`${item + 3}lb.`} key={idx}>
+            {item + 3} lb.
+          </option>
+        ))}
       </select>
 
       <input type="submit" value="SUBMIT" />

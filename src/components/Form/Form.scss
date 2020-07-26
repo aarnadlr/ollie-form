@@ -11,10 +11,12 @@ form {
   }
 
   label {
-    margin: 0 0 4px 0;
+    margin: 0 0 2px 0;
     width: 300px;
   }
-  input, select {
+  input,
+  select {
+    border-radius: 4px;
     padding: 8px;
     margin: 0 0 16px 0;
     height: 40px;
@@ -32,11 +34,11 @@ form {
     }
   }
 
-  select{
+  select {
     padding: 0px 8px;
   }
 
-  .error-message{
+  .error-message {
     color: red;
     font-weight: 500;
     margin: 0 0 8px 0;
