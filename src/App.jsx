@@ -27,10 +27,6 @@ const App = () => {
     // send user data to server
     fetch(url, {
       method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
       body: JSON.stringify(data),
     })
       .then(function (response) {
@@ -48,7 +44,7 @@ const App = () => {
     console.log('log formValues from useEffect:', formValues);
   }, [formValues]);
 
-  // handle errors: display a success or error message
+  // display a success or error message
   if (
     fetchResponse &&
     fetchResponse.data
