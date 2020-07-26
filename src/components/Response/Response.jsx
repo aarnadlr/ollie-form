@@ -4,21 +4,21 @@ export default function Response({ data, setFetchResponse }) {
   return (
     <div
       className={`response ${
-        data.success === true ? 'response--success' : 'response--error'
+        data && data.success === true ? 'response--success' : 'response--error'
       }`}
     >
       <div className="message">
         <span role="img" aria-label="emoji">
-          {`${data.success === true ? '✅' : '😕'}`}
+          {`${data && data.success === true ? '✅' : '😕'}`}
         </span>
-        {data.success === true ? (
+        {data && data.success === true ? (
           <span> Success! Your values have been received. Thank you!</span>
         ) : (
           <>
             <span>
               {' '}
               Whoops, there was a{' '}
-              <strong className="strong">{data.message}</strong>. Please reload
+              <strong className="strong">{data && data.message}</strong>. Please reload
               the page or click below.
             </span>
             <button
