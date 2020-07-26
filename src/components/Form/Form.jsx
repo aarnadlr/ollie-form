@@ -1,15 +1,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-// create an array of 150 empty items. Return an iterator of the array length. Spread the iterator into an array.
+// create an array of 178 empty items. Return an iterator of its keys (indexes 0 to 177). Spread the iterator into an Array.
 const weightVals = [...Array(178).keys()];
 
-export default function Form() {
+export default function Form({ onSubmit }) {
   const { register, handleSubmit, errors, watch } = useForm();
-
-  const onSubmit = (data) => {
-    console.log('data:', data);
-  };
 
   return (
     <form className="Form" onSubmit={handleSubmit(onSubmit)}>
@@ -83,7 +79,7 @@ export default function Form() {
       <label htmlFor="pet-weight">Pet Weight</label>
       <select name="pet-weight" id="pet-weight" ref={register()} required>
         {weightVals.map((item, idx) => (
-          <option value={`${item + 3}lb.`} key={idx}>
+          <option value={`${item + 3} lb.`} key={idx}>
             {item + 3} lb.
           </option>
         ))}
@@ -98,8 +94,8 @@ export default function Form() {
       >
         <option value={'no selection'}>Select a weight</option>
         {weightVals.map((item, idx) => (
-          <option value={`${item + 3}lb.`} key={idx}>
-            {item + 3} lb.
+          <option value={`${item + 3} lb.`} key={idx}>
+            {item + 3}lb.
           </option>
         ))}
       </select>

@@ -1,54 +1,96 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.scss';
-import useSWR from 'swr';
 import Form from './components/Form/Form';
 
 const url =
   'https://32f2jzoot4.execute-api.us-east-1.amazonaws.com/default/fe-takehome-api';
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const App = () => {
-  //---------
-  // const { data, error } = useSWR(url, fetcher);
+  const [fetchResponse, setFetchResponse] = useState({
+    status: 'initial', // can be 'initial', 'pending' or 'complete'
+    data: null,
+  });
 
-  // // if (data && data.message === 'Server error') {
-  // //   // throw new Error('Whoops, there was a server-side 500 error')
-  // //   throw new Error('Whoops, there was a server-side 500 error')
-  // // }
-  // // if (data && data.message === 'Client error') {
-  // //   // throw new Error('Whoops, there was a client-side 400 error')
-  // //   throw new Error('Whoops, there was a client-side 400 error')
-  // // }
+  const [formValues, setFormValues] = useState();
 
-  // if (error) return <div>Whoops. There was an error.</div>;
-  // if (!data) return <div>Loading...</div>;
+  const onSubmit = (data) => {
+    // save user form values
+    setFormValues(data);
 
-  // // handle server error
-  // if (data && data.message === 'Server error')
-  //   return (
-  //     <div>
-  //       Whoops, there was a <strong className="strong">{data.message}</strong>.
-  //       Please reload the page.
-  //     </div>
-  //   );
-  // // handle client error
-  // if (data && data.message === 'Client error')
-  //   return (
-  //     <div>
-  //       Whoops, there was a <strong className="strong">{data.message}</strong>.
-  //       Please reload the page.
-  //     </div>
-  //   );
+    // set status to 'pending'
+    setFetchResponse({
+      ...fetchResponse,
+      status: 'pending',
+    });
 
-  //---------
+    // send user data to server
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(data),
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        setFetchResponse({
+          status: 'complete',
+          data,
+        });
+      });
+  };
 
-  // success: render data
-  // return <div>✅Your data has been submitted successfully. Thank you</div>
+  useEffect(() => {
+    console.log('log fetchResponse from useEffect:', fetchResponse);
+  }, [fetchResponse]);
+
+  useEffect(() => {
+    console.log('log formValues from useEffect:', formValues);
+  }, [formValues]);
+
+  // handle errors
+  if (
+    fetchResponse &&
+    fetchResponse.data &&
+    fetchResponse.data.success === false
+  ) {
+    return (
+      <div className="response response--error">
+        <div className="message">
+          <span role="img" aria-label="sad face">
+            😕
+          </span>
+          <span>
+            {' '}
+            Whoops, there was a{' '}
+            <strong className="strong">{fetchResponse.data.message}</strong>.
+            Please reload the page.
+          </span>
+        </div>
+      </div>
+    );
+  }
+
+  if (
+    fetchResponse &&
+    fetchResponse.data &&
+    fetchResponse.data.success === true
+  ) {
+    return (
+      <div className="response response--success">
+        <div className="message">
+          <span role="img" aria-label="green checkmark">
+            ✅
+          </span>
+          <span> Success! Your values have been received. Thank you!</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="App">
       <img src={'https://via.placeholder.com/600'} alt="placeholder" />
-      <Form/>
+      <Form onSubmit={onSubmit} />
     </div>
   );
 };

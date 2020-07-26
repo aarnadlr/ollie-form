@@ -18,6 +18,26 @@
       max-width: 50%;
     }
   }
+}
 
-  
+.response {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.response--error {
+  .message {
+    span{
+      color: red;
+    }
+  }
+}
+.response--success {
+  .message {
+    span{
+      color: green;
+    }
+  }
 }

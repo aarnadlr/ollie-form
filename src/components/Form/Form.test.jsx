@@ -12,7 +12,7 @@ test('Component is visible', () => {
   expect(container.firstChild).toBeVisible();
 });
 
-test('Component has class "App"', () => {
+test('Component has class "Form"', () => {
   const { container } = render(<Form />);
   expect(container.firstChild).toHaveClass('Form');
 });
