@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function ErrorFallback({ error }) {
   return (
@@ -8,4 +9,9 @@ function ErrorFallback({ error }) {
     </div>
   );
 }
+
+ErrorFallback.propTypes = {
+  error: PropTypes.object.isRequired
+};
+
 export default ErrorFallback;

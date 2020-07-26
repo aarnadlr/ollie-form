@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import PropTypes from 'prop-types';
 
 // create an array of 178 empty items. Return an iterator of its keys (indexes 0 to 177). Spread the iterator into an Array.
 const weightVals = [...Array(178).keys()];
@@ -104,3 +105,7 @@ export default function Form({ onSubmit }) {
     </form>
   );
 }
+
+Form.propTypes = {
+  onSubmit: PropTypes.func.isRequired
+};
