@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 
 function ErrorFallback({ error }) {
   return (
-    <div role="alert">
+    <div className="error-fallback" role="alert">
       <p>Whoops, something went wrong:</p>
-      <pre style={{ color: 'red' }}>{error.message}</pre>
+      <pre style={{ color: 'red' }}>{error && error.message}</pre>
     </div>
   );
 }
 
 ErrorFallback.propTypes = {
-  error: PropTypes.object.isRequired
+  error: PropTypes.object
 };
 
 export default ErrorFallback;
