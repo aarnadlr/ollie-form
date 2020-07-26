@@ -23,7 +23,7 @@ form {
     max-width: 100%;
     border: 1px solid lightgray;
 
-    &[type='button'] {
+    &[type='submit'] {
       border-radius: 4px;
       color: white;
       background-color: lightslategray;
@@ -34,5 +34,16 @@ form {
 
   select{
     padding: 0px 8px;
+  }
+
+  .error-message{
+    color: red;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+    position: relative;
+    bottom: 12px;
+    font-size: 12px;
+    width: 300px;
+    line-height: 1.4;
   }
 }

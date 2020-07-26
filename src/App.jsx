@@ -1,10 +1,7 @@
 import React from 'react';
 import './App.scss';
-// import { ErrorBoundary } from 'react-error-boundary';
-// import ErrorFallback from './components/ErrorFallback/ErrorFallback';
 import useSWR from 'swr';
 import Form from './components/Form/Form';
-
 
 const url =
   'https://32f2jzoot4.execute-api.us-east-1.amazonaws.com/default/fe-takehome-api';
