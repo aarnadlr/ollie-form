@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Response({ data, setFetchResponse }) {
   return (
@@ -34,4 +35,10 @@ export default function Response({ data, setFetchResponse }) {
       </div>
     </div>
   );
-}
+};
+
+Response.propTypes = {
+  data: PropTypes.object,
+  setFetchResponse: PropTypes.func
+};
+

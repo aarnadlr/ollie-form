@@ -27,6 +27,10 @@ const App = () => {
     // send user data to server
     fetch(url, {
       method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify(data),
     })
       .then(function (response) {
