@@ -28,7 +28,7 @@
   height: 100vh;
 }
 
-.strong{
+.strong {
   font-weight: 600;
   color: currentColor;
 }
@@ -44,7 +44,20 @@
   .message {
     span {
       color: green;
-
     }
   }
+}
+
+button {
+  display: block;
+  height: 40px;
+  font-size: 18px;
+  width: 300px;
+  border: 1px solid lightgray;
+
+  border-radius: 4px;
+  color: white;
+  background-color: lightslategray;
+  padding: 0px;
+  margin: 24px auto 48px auto;
 }

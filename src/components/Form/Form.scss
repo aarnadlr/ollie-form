@@ -24,14 +24,6 @@ form {
     width: 300px;
     max-width: 100%;
     border: 1px solid lightgray;
-
-    &[type='submit'] {
-      border-radius: 4px;
-      color: white;
-      background-color: lightslategray;
-      padding: 0px;
-      margin: 16px 0 48px 0;
-    }
   }
 
   select {

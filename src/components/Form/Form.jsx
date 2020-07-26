@@ -50,7 +50,7 @@ export default function Form({ onSubmit }) {
 
       <label htmlFor="confirmPassword">Confirm Password</label>
       <input
-        type="confirmPassword"
+        type="password"
         name="confirmPassword"
         id="confirmPassword"
         autoComplete="new-password"
@@ -101,7 +101,7 @@ export default function Form({ onSubmit }) {
         ))}
       </select>
 
-      <input type="submit" value="SUBMIT" />
+      <button type="submit">SUBMIT</button>
     </form>
   );
 }
