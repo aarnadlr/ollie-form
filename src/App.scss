@@ -1,4 +1,4 @@
-$breakpoint: 768px;
+@import './_variables';
 
 .App {
   border: 1px solid lightgray;
@@ -19,43 +19,5 @@ $breakpoint: 768px;
     }
   }
 
-  form {
-    display: flex;
-    flex-direction: column;
-    padding: 40px 0;
-    background-color: rgb(240, 244, 245);
-    align-items: center;
-    @media screen and (min-width: $breakpoint) {
-      flex: 1;
-    }
-
-    label {
-      margin: 0 0 4px 0;
-      width: 300px;
-    }
-    input, select {
-      padding: 8px;
-      margin: 0 0 16px 0;
-      height: 40px;
-      font-size: 18px;
-      width: 300px;
-      max-width: 100%;
-      border: 1px solid lightgray;
-
-      &[type='button'] {
-        border-radius: 4px;
-        color: white;
-        background-color: lightslategray;
-        padding: 0px;
-        margin: 16px 0 48px 0;
-      }
-    }
-
-    select{
-      padding: 0px 8px;
-    }
-
   
-
-  }
 }
