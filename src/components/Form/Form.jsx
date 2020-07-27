@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import PropTypes from 'prop-types';
+import mergeRefs from 'react-merge-refs';
 
 // create an array of 178 empty items. Return an iterator of its keys (indexes 0 to 177). Spread the iterator into an Array.
 const weightVals = [...Array(178).keys()];
 
 export default function Form({ onSubmit }) {
   const { register, handleSubmit, errors, watch } = useForm();
+  const emailRef = useRef();
+
+  // focus on first input on mount
+  useEffect(() => {
+    emailRef.current.focus();
+  }, []);
 
   return (
     <form className="Form" onSubmit={handleSubmit(onSubmit)}>
@@ -17,11 +24,14 @@ export default function Form({ onSubmit }) {
         id="email"
         autoComplete="email"
         required
-        ref={register({
-          required: true,
-          // regexp for email validation:
-          pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
-        })}
+        ref={mergeRefs([
+          register({
+            required: true,
+            // regexp for email validation:
+            pattern: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+          }),
+          emailRef,
+        ])}
       />
       {errors && errors.email && (
         <p className="error-message">Whoops, this email address is invalid.</p>
@@ -87,11 +97,7 @@ export default function Form({ onSubmit }) {
       </select>
 
       <label htmlFor="petIdealWeight">Pet Ideal Weight (optional)</label>
-      <select
-        name="petIdealWeight"
-        id="petIdealWeight"
-        ref={register()}
-      >
+      <select name="petIdealWeight" id="petIdealWeight" ref={register()}>
         <option value={'none'}>Select a weight</option>
         {weightVals.map((item, idx) => (
           <option value={`${item + 3} lb.`} key={idx}>
