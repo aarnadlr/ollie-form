@@ -91,7 +91,6 @@ export default function Form({ onSubmit }) {
         name="petIdealWeight"
         id="petIdealWeight"
         ref={register()}
-        required
       >
         <option value={'none'}>Select a weight</option>
         {weightVals.map((item, idx) => (
