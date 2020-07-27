@@ -77,8 +77,8 @@ export default function Form({ onSubmit }) {
         ref={register}
       />
 
-      <label htmlFor="pet-weight">Pet Weight</label>
-      <select name="pet-weight" id="pet-weight" ref={register()} required>
+      <label htmlFor="petWeight">Pet Weight</label>
+      <select name="petWeight" id="petWeight" ref={register()} required>
         {weightVals.map((item, idx) => (
           <option value={`${item + 3} lb.`} key={idx}>
             {item + 3} lb.
@@ -93,7 +93,7 @@ export default function Form({ onSubmit }) {
         ref={register()}
         required
       >
-        <option value={'no selection'}>Select a weight</option>
+        <option value={'none'}>Select a weight</option>
         {weightVals.map((item, idx) => (
           <option value={`${item + 3} lb.`} key={idx}>
             {item + 3}lb.
@@ -107,5 +107,5 @@ export default function Form({ onSubmit }) {
 }
 
 Form.propTypes = {
-  onSubmit: PropTypes.func
+  onSubmit: PropTypes.func,
 };
