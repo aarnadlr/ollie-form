@@ -67,11 +67,11 @@ export default function Form({ onSubmit }) {
         <p className="error-message">Value must match password.</p>
       )}
 
-      <label htmlFor="pet-name">Pet Name</label>
+      <label htmlFor="petName">Pet Name</label>
       <input
         type="text"
-        name="pet-name"
-        id="pet-name"
+        name="petName"
+        id="petName"
         autoComplete="on"
         required
         ref={register}
@@ -86,10 +86,10 @@ export default function Form({ onSubmit }) {
         ))}
       </select>
 
-      <label htmlFor="pet-ideal-weight">Pet Ideal Weight (optional)</label>
+      <label htmlFor="petIdealWeight">Pet Ideal Weight (optional)</label>
       <select
-        name="pet-ideal-weight"
-        id="pet-ideal-weight"
+        name="petIdealWeight"
+        id="petIdealWeight"
         ref={register()}
         required
       >
