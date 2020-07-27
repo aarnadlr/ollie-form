@@ -1,3 +1,25 @@
+## Ollie Form
+
+Form values sent to a server endpoint which intentionally returns random 'success' and 'error' responses. Multi-input form includes input validation, error handling, proptypes, unit tests.
+
+✅ Responsive layout
+
+✅ Form field validation
+
+✅ Fetch POST request to API
+
+✅ ErrorBoundary for runtime error handling
+
+✅ PropTypes for all components
+
+✅ Unit tests for all components
+
+The user's submitted form values are logged to the console for review.
+
+Live deployed link: https://ollie-form.vercel.app/
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
